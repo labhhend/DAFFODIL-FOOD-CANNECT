@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daffodil Food Connect - DSC Food Directory</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Daffodil Food Connect</h1>
+                    <h2>DSC Food Directory</h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- Food Directory Section -->
+        <section class="food-directory">
+            <h2 class="section-title">Food Directory</h2>
+            <div class="food-table-container">
+                <table class="food-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="icon">🍛</span>
+                                <span class="place-name">DSC Canteen</span>
+                            </td>
+                            <td>
+                                <span class="type-badge cafeteria">University Cafeteria</span>
+                            </td>
+                            <td class="location">Main Campus, DSC Building</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="icon">☕</span>
+                                <span class="place-name">TSC Café</span>
+                            </td>
+                            <td>
+                                <span class="type-badge snacks">Snacks & Tea</span>
+                            </td>
+                            <td class="location">Permanent Campus, TSC Building</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="icon">🍲</span>
+                                <span class="place-name">Green Garden Hotel</span>
+                            </td>
+                            <td>
+                                <span class="type-badge restaurant">Restaurant</span>
+                            </td>
+                            <td class="location">Beside Main Gate, DSC Road</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="icon">🍔</span>
+                                <span class="place-name">Food Zone</span>
+                            </td>
+                            <td>
+                                <span class="type-badge fast-food">Fast Food</span>
+                            </td>
+                            <td class="location">Dorm Area, Near DSC Hostel</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="icon">🥪</span>
+                                <span class="place-name">Campus Delight</span>
+                            </td>
+                            <td>
+                                <span class="type-badge snacks">Sandwiches & Juices</span>
+                            </td>
+                            <td class="location">DSC Academic Building, Ground Floor</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="icon">🍜</span>
+                                <span class="place-name">Noodle House</span>
+                            </td>
+                            <td>
+                                <span class="type-badge fast-food">Asian Food</span>
+                            </td>
+                            <td class="location">DSC Shopping Complex</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for food places...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="cafeteria">Cafeteria</button>
+                    <button class="filter-btn" data-filter="snacks">Snacks</button>
+                    <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+                    <button class="filter-btn" data-filter="fast-food">Fast Food</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p class="footer-text">Daffodil Food Connect - DSC Food Directory</p>
+            <p>&copy; 2023 H.H LTD | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
