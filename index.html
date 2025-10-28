@@ -3,127 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daffodil Food Connect - DSC Food Directory</title>
+    <title>Daffodil Food Connect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>Daffodil Food Connect</h1>
-                    <h2>DSC Food Directory</h2>
-                </div>
-            </div>
-        </header>
-
-        <!-- Food Directory Section -->
-        <section class="food-directory">
-            <h2 class="section-title">Food Directory</h2>
-            <div class="food-table-container">
-                <table class="food-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Location</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <span class="icon">🍛</span>
-                                <span class="place-name">DSC Canteen</span>
-                            </td>
-                            <td>
-                                <span class="type-badge cafeteria">University Cafeteria</span>
-                            </td>
-                            <td class="location">Main Campus, DSC Building</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="icon">☕</span>
-                                <span class="place-name">TSC Café</span>
-                            </td>
-                            <td>
-                                <span class="type-badge snacks">Snacks & Tea</span>
-                            </td>
-                            <td class="location">Permanent Campus, TSC Building</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="icon">🍲</span>
-                                <span class="place-name">Green Garden Hotel</span>
-                            </td>
-                            <td>
-                                <span class="type-badge restaurant">Restaurant</span>
-                            </td>
-                            <td class="location">Beside Main Gate, DSC Road</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="icon">🍔</span>
-                                <span class="place-name">Food Zone</span>
-                            </td>
-                            <td>
-                                <span class="type-badge fast-food">Fast Food</span>
-                            </td>
-                            <td class="location">Dorm Area, Near DSC Hostel</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="icon">🥪</span>
-                                <span class="place-name">Campus Delight</span>
-                            </td>
-                            <td>
-                                <span class="type-badge snacks">Sandwiches & Juices</span>
-                            </td>
-                            <td class="location">DSC Academic Building, Ground Floor</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="icon">🍜</span>
-                                <span class="place-name">Noodle House</span>
-                            </td>
-                            <td>
-                                <span class="type-badge fast-food">Asian Food</span>
-                            </td>
-                            <td class="location">DSC Shopping Complex</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Search and Filter Section -->
-        <section class="search-section">
-            <div class="search-container">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search for food places...">
-                    <button id="searchBtn"><i class="fas fa-search"></i></button>
-                </div>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="cafeteria">Cafeteria</button>
-                    <button class="filter-btn" data-filter="snacks">Snacks</button>
-                    <button class="filter-btn" data-filter="restaurant">Restaurant</button>
-                    <button class="filter-btn" data-filter="fast-food">Fast Food</button>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-utensils me-2"></i>Daffodil Food Connect
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active-tab" href="#" data-tab="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="hotels">Restaurants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-tab="about">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="registerBtn">Sign Up</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Footer -->
-        <footer>
-            <p class="footer-text">Daffodil Food Connect - DSC Food Directory</p>
-            <p>&copy; 2023 H.H LTD | All Rights Reserved</p>
-        </footer>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Home Tab -->
+        <div id="home-tab" class="tab-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h1 class="display-4 fw-bold mb-4">Discover the Best Food in Your Area</h1>
+                            <p class="lead mb-4">Find restaurants, read authentic reviews, and share your culinary experiences with Daffodil Food Connect.</p>
+                            <div class="search-box">
+                                <div class="input-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Search by area (Mirpur, Savar, Ashulia, etc.)" id="areaSearch">
+                                    <button class="btn btn-primary" type="button" id="searchBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-circle shadow-lg" alt="Food" style="max-height: 400px;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="container mb-5">
+                <div class="row">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stats-card">
+                            <div class="stats-number" id="totalRestaurants">50+</div>
+                            <div class="stats-label">Restaurants</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stats-card">
+                            <div class="stats-number" id="totalReviews">1.2K</div>
+                            <div class="stats-label">Reviews</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stats-card">
+                            <div class="stats-number" id="happyUsers">5K+</div>
+                            <div class="stats-label">Happy Users</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stats-card">
+                            <div class="stats-number" id="cities">12+</div>
+                            <div class="stats-label">Cities</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Categories -->
+            <section class="container mb-5">
+                <h2 class="section-title">Popular Food Categories</h2>
+                <div class="row g-4">
+                    <div class="col-md-2 col-4">
+                        <div class="food-category active" data-type="all">
+                            <i class="fas fa-utensils"></i>
+                            <h5>All</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <div class="food-category" data-type="biriyani">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <h5>Biriyani</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <div class="food-category" data-type="burger">
+                            <i class="fas fa-hamburger"></i>
+                            <h5>Burger</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <div class="food-category" data-type="pizza">
+                            <i class="fas fa-pizza-slice"></i>
+                            <h5>Pizza</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <div class="food-category" data-type="rice">
+                            <i class="fas fa-bowl-food"></i>
+                            <h5>Rice</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <div class="food-category" data-type="dessert">
+                            <i class="fas fa-ice-cream"></i>
+                            <h5>Dessert</h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Restaurants -->
+            <section class="container mb-5">
+                <h2 class="section-title">Featured Restaurants</h2>
+                <div class="row" id="hotelList">
+                    <!-- Hotel cards will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="container mb-5">
+                <h2 class="section-title">Why Choose Daffodil Food Connect?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Easy Search</h4>
+                        <p class="text-center">Find the perfect restaurant with our advanced search and filtering options.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Authentic Reviews</h4>
+                        <p class="text-center">Read genuine reviews from real customers to make informed decisions.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Location Based</h4>
+                        <p class="text-center">Discover great food spots near you with our location-based recommendations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="container mb-5">
+                <h2 class="section-title">What Our Users Say</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Daffodil Food Connect helped me discover amazing local restaurants I never knew existed. The reviews are so helpful!"
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="user-avatar me-3" alt="User">
+                                <div>
+                                    <div class="testimonial-author">Fatima Begum</div>
+                                    <div class="testimonial-role">Food Enthusiast</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "As a food blogger, I rely on Daffodil Food Connect to find new places to review. It's my go-to app for restaurant discovery."
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" class="user-avatar me-3" alt="User">
+                                <div>
+                                    <div class="testimonial-author">Rahim Khan</div>
+                                    <div class="testimonial-role">Food Blogger</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "I've found my favorite biriyani place thanks to this platform. The filtering by food type is incredibly useful!"
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://randomuser.me/api/portraits/women/67.jpg" class="user-avatar me-3" alt="User">
+                                <div>
+                                    <div class="testimonial-author">Sadia Rahman</div>
+                                    <div class="testimonial-role">Regular User</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Restaurants Tab -->
+        <div id="hotels-tab" class="tab-content hidden">
+            <div class="container my-5">
+                <h2 class="section-title">All Restaurants</h2>
+                <div class="row" id="allHotelList">
+                    <!-- All hotel cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div id="reviews-tab" class="tab-content hidden">
+            <div class="container my-5">
+                <h2 class="section-title">Recent Reviews</h2>
+                <div id="reviewList">
+                    <!-- Review cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about-tab" class="tab-content hidden">
+            <div class="container my-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="section-title text-start">About Daffodil Food Connect</h2>
+                        <p class="lead">Connecting food lovers with the best dining experiences in Bangladesh.</p>
+                        <p>Daffodil Food Connect is your ultimate guide to discovering restaurants, reading authentic reviews, and sharing your culinary adventures. Our platform helps you find the perfect dining spot based on your preferences and location.</p>
+                        <p>Whether you're craving biriyani, burgers, pizza, or something sweet, we've got you covered with detailed information, ratings, and genuine customer feedback.</p>
+                        <div class="mt-4">
+                            <button class="btn btn-primary me-3">Learn More</button>
+                            <button class="btn btn-outline-primary">Contact Us</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="About Us">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login to Your Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="loginEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create an Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="registerEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="registerPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel Details Modal -->
+        <div class="modal fade" id="hotelModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="hotelModalTitle">Restaurant Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="hotelModalBody">
+                        <!-- Hotel details will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Review Modal -->
+        <div class="modal fade" id="reviewModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Review</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reviewForm">
+                            <div class="mb-3">
+                                <label for="reviewHotel" class="form-label">Select Restaurant</label>
+                                <select class="form-select" id="reviewHotel" required>
+                                    <!-- Options will be populated by JavaScript -->
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Rating</label>
+                                <div class="rating-stars mb-2">
+                                    <i class="far fa-star" data-rating="1"></i>
+                                    <i class="far fa-star" data-rating="2"></i>
+                                    <i class="far fa-star" data-rating="3"></i>
+                                    <i class="far fa-star" data-rating="4"></i>
+                                    <i class="far fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" id="ratingValue" value="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="reviewComment" class="form-label">Comment</label>
+                                <textarea class="form-control" id="reviewComment" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-utensils me-2"></i>Daffodil Food Connect</h5>
+                    <p>Your trusted platform for discovering and reviewing restaurants in Bangladesh. Find the best dining experiences with authentic reviews from real customers.</p>
+                    <div class="mt-4">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#">Restaurants</a></li>
+                        <li class="mb-2"><a href="#">Reviews</a></li>
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Popular Areas</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Mirpur</a></li>
+                        <li class="mb-2"><a href="#">Savar</a></li>
+                        <li class="mb-2"><a href="#">Ashulia</a></li>
+                        <li class="mb-2"><a href="#">Uttara</a></li>
+                        <li class="mb-2"><a href="#">Dhanmondi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i> info@daffodilfoodconnect.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i> +880 1234 567890
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt me-2"></i> Daffodil Smart City, Birulia, Savar, Dhaka
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Daffodil Food Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action" id="addReviewFAB">
+        <i class="fas fa-pen"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
